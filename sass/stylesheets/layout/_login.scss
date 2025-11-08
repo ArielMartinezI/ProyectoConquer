@@ -1,0 +1,133 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.header_login{
+    @include header_style();
+    .login{
+        display: none;
+    }
+}
+
+.main_login{
+    @include main_style();
+    margin-bottom: 50px;
+    .title{
+        font-size: 30px;
+        font-family: $font1;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        div label{
+            font-family: $font2;
+            display: block; //esto es para poner los elementos del formulario uno abajo del otro
+            font-weight: 500;
+            letter-spacing: -0.22px;
+            font-size: 16px;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        div input{
+            font-family: $font2;
+            box-sizing: border-box;
+            padding: 5px 0 5px 0;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            margin-bottom: 32px;
+            font-weight: 500;
+            color: white;
+            letter-spacing: -0.22px;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus{
+            border-bottom: 1px solid $color-sky;
+        }
+        button{
+            width: 100px;
+            padding: 8px;
+            border-radius: 8px;
+            background: $color-green;
+            border-color: $color-green;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            font-family: $font2;
+            color: white;
+            margin-right: auto;
+            margin-left: auto;
+            &:hover{
+                background-color: green;
+                border-color: green;
+            }
+        }
+        div{
+            position: relative;
+            .error-text{
+                letter-spacing: -0.17px;
+                color: rgba(255, 111, 91, 1);
+                font-family: $font2;
+                position: absolute;
+                font-size: 10px;
+                top: 48px;
+                right: 2px;
+                display: none;
+            }
+            input:invalid{
+                border-bottom: 1px solid rgba(255, 111, 91, 1);
+            }
+            input:invalid:focus ~ .error-text, input:invalid:not(:placeholder-shown) ~ .error-text {
+                display: block;
+            }
+        }
+    }
+    @include breakpoint(tablet){
+        display: flex;
+        flex-direction: column;
+        .title{
+            text-align: center;
+            font-size: 30px;
+        }
+        form{
+            width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            div label, div .error-text{
+                font-size: 16px
+            }
+            .fin_formulario{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                button, input{
+                    margin: 0
+                }
+            }
+
+        }
+    }
+    @include breakpoint(desktop){
+        margin-top: 150px;
+        margin-bottom: 200px;
+        .title{
+            font-size: 35px;
+        }
+        .formulario{
+            div label{
+                font-size: 18px;
+            }
+            button{
+                width: 150px;
+                font-size: 18px;
+            }
+        }
+    }
+}

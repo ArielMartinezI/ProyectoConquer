@@ -1,0 +1,132 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.header_registro{
+    @include header_style();
+    .registro{
+        display: none;
+    }
+}
+
+.main_registro{
+    @include main_style();
+    margin-bottom: 50px;
+    .title{
+        font-family: $font1;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+    .subtitle{
+        font-size: 14px;
+        color: white;
+        font-family: $font2;
+        line-height: 20px;
+        margin-bottom: 40px;
+    }
+    form{
+        @include form_style();
+        div{
+            position: relative;
+            .error-text{
+                letter-spacing: -0.17px;
+                color: rgba(255, 111, 91, 1);
+                font-family: $font2;
+                position: absolute;
+                font-size: 10px;
+                top: 66px;
+                right: 2px;
+                display: none;
+            }
+            input:invalid{
+                border-bottom: 1px solid rgba(255, 111, 91, 1);
+            }
+            input:invalid:focus ~ .error-text, input:invalid:not(:placeholder-shown) ~ .error-text {
+                display: block;
+            }
+        }
+        .foto{
+            input{
+                background: transparent;
+                font-size: 12px;
+                color: white;
+                font-family: $font2;
+            }
+        }
+        .fin_formulario{
+            display: flex;
+            flex-direction: column;
+            
+            gap: 20px;
+            button{
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            input{
+                width: 150px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @include breakpoint(tablet){
+        display: flex;
+        flex-direction: column;
+        .title{
+            text-align: center;
+            font-size: 30px
+        }
+        .subtitle{
+            font-size: 16px;
+            text-align: center;
+        }
+        form{
+            width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            div label, div .error-text{
+                font-size: 16px
+            }
+            .fin_formulario{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                button, input{
+                    margin: 0
+                }
+            }
+        }
+    }
+
+    @include breakpoint(desktop){
+        .title{
+            font-size: 35px;
+        }
+        .subtitle{
+            font-size: 20px;
+            width: 900px;
+            margin-left: 122px;
+            margin-bottom: 70px;
+        }
+        form{
+            div label{
+                font-size: 18px;
+            }
+            .fin_formulario{
+                button{
+                    width: 150px;
+                    font-size: 18px;
+                }
+                input{
+                    width: 150px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+.footer_registro{
+    @include footer_style();
+}
