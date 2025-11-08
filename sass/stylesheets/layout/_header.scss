@@ -1,0 +1,85 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.header_principal{
+    padding: 20px 16px 50px 16px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, $color-gray, $color-darkgray);
+    font-family: $font1;
+    figure{
+        text-align: center;
+        .logo{
+            img{
+                width: 127px;
+            };
+        }
+    }
+    .nav_principal{
+        .menu{
+            display: flex;
+            justify-content: space-between;
+            gap: 3px;
+            @include reset_list();
+            .home{
+                display: none;
+            }
+            a{  
+                position: relative;
+                text-decoration: none;
+                color: $color-darkgray;
+                font-size: 12px;
+                &:hover{
+                    color: $color-sky;
+                    &::before{
+                        position: absolute;
+                        content: '';
+                        width: 70%;
+                        height: 3px;
+                        background-color: $color-sky;
+                        top: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include breakpoint(tablet){
+        display: flex;
+        justify-content: space-between;
+        flex-direction: inherit;
+        align-content: center;
+        box-sizing: border-box;
+        padding: 20px 20px 50px 20px;
+        figure .logo img{
+            width: 200px;
+        }
+        .nav_principal{
+            .menu{
+                gap: 15px;
+                a{
+                    font-size: 14px;
+                    &:hover{
+                        &::before{
+                            top: 23px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include breakpoint(desktop){
+        figure .logo img{
+            width: 300px;
+        }
+        .nav_principal .menu{
+            gap: 20px;
+            margin-right: 50px;
+            a{
+                font-size: 18px;
+            }
+        }
+    }
+}

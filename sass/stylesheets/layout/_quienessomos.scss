@@ -1,0 +1,183 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.header_qs{
+    @include header_style();
+    .qs{
+        display: none;
+    }
+}
+
+.main_qs{
+    @include main_style();
+    margin-bottom: 50px;
+    h1{
+        font-size: 20px;
+        color: $color-yellow;
+        text-transform: uppercase;
+        font-family: $font1;
+        line-height: 17px;
+        margin-bottom: 30px;
+    }
+    .qs_content{
+        margin-bottom: 30px;
+        .title{
+            font-size: 18px;
+            color: white;
+            text-transform: uppercase;
+            font-family: $font1;
+            line-height: 20px;
+            margin-bottom: 10px;
+            text-decoration: 1px underline $color-yellow;
+        }
+        .subtitle{
+            font-family: $font2;
+            color: $color-gray;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 18px;
+        }
+    }
+    .miembros{
+        h2{
+            font-size: 18px;
+            color: $color-yellow;
+            text-transform: uppercase;
+            font-family: $font1;
+            line-height: 17px;
+            margin-bottom: 20px;
+        }
+        article{
+            border: 1px solid $color-yellow;
+            border-radius: 8px;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+            .title{
+                font-size: 18px;
+                color: white;
+                text-transform: uppercase;
+                font-family: $font1;
+                line-height: 17px;
+                margin-bottom: 10px;
+            }
+            .subtitle{
+                font-family: $font2;
+                color: $color-gray;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 18px;
+            }
+            figure{
+                position: relative;
+                max-width: max-content;
+                border-radius: 100%;
+                figcaption{
+                    font-size: 14px;
+                    color: white;
+                    text-transform: uppercase;
+                    font-family: $font1;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    @include breakpoint(tablet){
+        h1{
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 40px
+        }
+        .qs_content{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .title{
+                font-size: 20px;
+            }
+            .subtitle{
+                width: 581px;
+                font-size: 18px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 25px
+            }
+        }
+        .miembros{
+            display: flex;
+            flex-direction: column;
+            .title{
+                font-size: 20px;
+                margin-bottom: 40px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .miembros_content{
+                display: flex;
+                box-sizing: border-box;
+                gap: 10px;
+                article{
+                    display: flex;
+                    flex-direction: column;
+                    figure{
+                        margin: 0 auto;
+                        img{
+                            width: 165px
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include breakpoint(desktop){
+        margin-top: 150px;
+        h1{
+            font-size: 50px
+        }
+        .qs_content{
+            .title{
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+            .subtitle{
+                font-size: 22px;
+                line-height: 35px;
+                width: 700px
+            }
+        }
+        .miembros{
+            .title{
+                font-size: 30px
+            }
+            .miembros_content{
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                article{
+                    width: 600px;
+                    padding: 30px;
+                    .title{
+                        font-size: 25px;
+                        margin-bottom: 30px;
+                    }
+                    .subtitle{
+                        line-height: 30px;
+                        font-size: 22px;
+                    }
+                    figure{
+                        figcaption{
+                            font-size: 22px;
+                        }
+                        img{
+                            width: 300px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer_qs{
+    @include footer_style();
+}
