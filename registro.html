@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Conquer Academy | Registro </title>
+  <meta name="description" content="La escuela número 1 en desarrollo de tecnologías emergentes.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Ariel Martinez">
+  <meta property="og:type" content="Ariel Martinez">
+  <meta property="og:url" content="Ariel Martinez">
+  <meta property="og:image" content="Ariel Martinez">
+
+  <link rel="stylesheet" href="./sass/stylesheets/style.scss">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <div class="page">
+    <header class="header_registro">
+      <figure>
+        <a href="#" class="logo"><img src="./assets/comunes/image.png" alt="Logo Conquer Crypto"></a>
+      </figure>
+      <nav class="nav_principal">
+        <ul class="menu">
+          <li class="home"><a href="./index.html">Home</a></li>
+          <li class="qs"><a href="./quienessomos.html">Quienes Somos</a></li>
+          <li class="cursos"><a href="./cursos.html">Cursos</a></li>
+          <li class="blog"><a href="./blog.html">Blog</a></li>
+          <li class="registro"><a href="#">Registro</a></li>
+          <li class="login"><a href="./login.html">Login</a></li>
+          <li class="contacto"><a href="./contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main class="main_registro">
+      <h1 class="title">Registro</h1>
+      <p class="subtitle">Queremos saber mas de ti para recomendarte el curso que mejor se adapate a ti en base a tu nivel de programacion. Por favor completa este formulario.</p>
+      
+      <form action="" name="registroUsuarios" method="post" enctype="multipart/form-data" novalidate>
+          
+          <div>
+          <label for="name">Nombre completo</label><br>
+          <input type="text" name="nombre" id="name">
+          </div>
+
+          <div>
+            <label for="birth">Fecha de nacimiento</label><br> 
+            <input type="date" name="nacimiento"> 
+          </div>
+
+          <div>
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="emial" required>
+            <small class="error-text">Campo invalido</small>
+          </div>
+
+          <div>
+            <label for="direccion">Direccion</label><br>
+            <input type="text" name="direccion" id="direccion">
+          </div>
+          
+          <div>
+            <label for="web">Pagina web</label><br>
+            <input type="url" name="pagweb" id="web">
+          </div>
+
+          <div class="foto">
+            <label for="photo">Foto</label>
+            <input type="file" name="foto" id="photo">
+          </div>
+
+          <div class="bibliografia">
+            <label for="bio">Biografia</label><br>
+            <textarea name="bio" id="bio" cols="20" rows="5" placeholder="Cuentanos un poco sobre ti..."></textarea>
+          </div>
+          
+          <div class="fin_formulario">
+            <button>Enviar formulario</button>
+            <input type="reset" value="Borrar formulario">
+          </div>
+      </form>
+      </main>
+    
+    <footer class="footer_registro">
+      <figure><a href="#"><img src="./assets/comunes/image.png" alt=""></a></figure>
+      <p>Copyright © 2025  By ConquerX <a href="./avisolegal.html">Aviso Legal</a></p> 
+    </footer>
+  </div>
+</body>
+
+</html>
