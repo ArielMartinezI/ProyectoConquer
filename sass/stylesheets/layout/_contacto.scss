@@ -1,0 +1,161 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.header_contacto{
+    @include header_style();
+    .contacto{
+        display: none;
+    }
+}
+
+main{
+    .tablet{
+        display: none
+    }
+    @include main_style();
+    .title{
+        font-size: 20px;
+        text-transform: uppercase;
+        color: white;
+        font-family: $font1;
+        margin-bottom: 5px;
+    }
+    .subtitle{
+        font-family: $font2;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 25px;
+    }
+    .formulario{
+        .title{
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        form{
+            @include form_style();
+            margin-bottom: 40px;
+            .email{
+                position: relative;
+                .text-error{
+                    letter-spacing: -0.17px;
+                    color: rgba(255, 111, 91, 1);
+                    font-family: $font2;
+                    position: absolute;
+                    font-size: 10px;
+                    top: 66px;
+                    right: 2px;
+                    display: none;
+                }
+                input:invalid{
+                    border-bottom: 1px solid rgba(255, 111, 91, 1);
+                }
+                input:invalid:focus ~ .text-error, input:invalid:not(:placeholder-shown) ~ .error-text {
+                    display: block;
+                }
+            }
+            .button{
+                display: flex;
+                button{
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+    .buscador{
+        margin-bottom: 50px;
+        h2{
+            font-family: $font1;
+            color: white;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+    }
+    @include breakpoint(tablet){
+        display: flex;
+        flex-direction: column;
+        .title{
+            text-align: center;
+            font-size: 30px
+        }
+        .subtitle{
+            font-size: 16px;
+            text-align: center;
+        }
+        .formulario{
+            .title{
+                font-size: 18px
+            }
+        form{
+            width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            div label, div .error-text{
+                font-size: 16px
+            }
+            .fin_formulario{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                button, input{
+                    margin: 0
+                }
+            }
+        }
+        }
+
+        .buscador{
+            display: flex;
+            flex-direction: column;
+            h2{
+                margin: 40px auto 40px auto;
+                font-size: 18px
+            }
+            iframe{
+                display: none;
+            }
+            iframe.tablet{
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+    @include breakpoint(desktop){
+        margin-top: 50px;
+        .title{
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        .subtitle{
+            font-size: 22px;
+            margin-bottom: 50px
+        }
+        .formulario{
+            .title{
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+            form{
+                div label{
+                    font-size: 18px;
+                }
+                .button{
+                    button{
+                        font-size: 20px;
+                        width: 150px;
+                    }
+                }
+            }
+        }
+        .buscador{
+            .title{
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.footer_contacto{
+    @include footer_style();
+}

@@ -1,0 +1,268 @@
+@use './variables' as *;
+
+//Nuestros mxin de conquer
+@mixin breakpoint($bp){
+  
+  @if $bp == tablet{
+    @media (min-width: $bp-tablet){
+      @content;
+    }
+  }
+
+  @if $bp == tablethorizontal {
+    @media (min-width: $bp-tablet-horizontal){
+      @content;
+    }
+  }
+
+  @if $bp == desktop{
+    @media (min-width: $bp-desktop){
+      @content;
+    }
+  }
+
+  @if $bp == desktopxl{
+    @media (min-width: $bp-desktop-xl){
+      @content;
+    }
+  }
+
+}
+
+@mixin reset_list(){
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin header_style(){
+  padding: 20px 16px 50px 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $color-gray;
+  font-family: $font1;
+  background-image: linear-gradient(to bottom, $color-gray, $color-darkgray);
+  figure{
+    text-align: center;
+    .logo{
+      img{
+        width: 127px;
+      };
+    }
+  }
+  .nav_principal{
+    .menu{
+      display: flex;
+      justify-content: space-between;
+      gap: 3px;
+      @include reset_list();
+      a{  
+        position: relative;
+        text-decoration: none;
+        color: $color-darkgray;
+        font-size: 12px;
+        &:hover{
+          color: $color-sky;
+          &::before{
+            position: absolute;
+            content: '';
+            width: 70%;
+             height: 3px;
+            background-color: $color-sky;
+            top: 15px;
+          }
+        }
+      }
+    }
+  }
+  @include breakpoint(tablet){
+    display: flex;
+    justify-content: space-between;
+    flex-direction: inherit;
+    align-content: center;
+    figure .logo img{
+      width: 200px;
+    }
+    .nav_principal{
+      .menu{
+        gap: 15px;
+        a{
+          font-size: 14px;
+       }
+      }
+    }
+  }
+  @include breakpoint(desktop){
+    figure .logo img{
+      width: 300px;
+    }
+    .nav_principal .menu{
+      gap: 20px;
+      margin-right: 50px;
+      a{
+        font-size: 18px;
+        &:hover{
+          &::before{
+            top: 23px;
+          }
+        }
+      }
+    }
+  } 
+}
+
+@mixin footer_style(){
+  background-color: white;
+  padding: 25px 10px;
+  display: flex;
+  flex-direction: column;
+  figure{
+    text-align: center;
+    a img{
+      width: 127px;
+    }
+  }
+  p{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: $font2;
+    color: $color-darkgray;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    a{
+      text-decoration: none;
+      position: relative;
+      color: $color-darkgray;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 5px;
+      &::before{
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: 3px;
+        background-color: $color-darkgray;
+        top: 15px;
+      }   
+      &:hover{
+        color: $color-sky;
+        &::before{
+          position: absolute;
+          content: '';
+          width: 50px;
+          height: 3px;
+          background-color: $color-sky;
+          top: 15px;
+        }   
+      }
+    }
+  }
+  @include breakpoint(tablet){
+    display: flex;
+    justify-content: space-between;
+    flex-direction: inherit;
+    padding: 40px 40px;
+    align-items: center;
+    figure a img{
+      width: 200px;
+    }
+  }
+  @include breakpoint(desktop){
+    figure a img{
+      width: 200px;
+    }
+  }
+}
+
+@mixin main_style(){
+  margin: 40px 16px 20px 16px;
+}
+
+@mixin form_style(){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        div label{
+            font-family: $font2;
+            display: block; //esto es para poner los elementos del formulario uno abajo del otro
+            font-weight: 500;
+            letter-spacing: -0.22px;
+            font-size: 16px;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        div input, div textarea{
+            font-family: $font2;
+            box-sizing: border-box;
+            padding: 5px 0 5px 0;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            margin-bottom: 32px;
+            font-weight: 500;
+            color: white;
+            letter-spacing: -0.22px;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus, textarea:focus{
+            border-bottom: 1px solid $color-sky;
+        }
+        button{
+            width: 100px;
+            padding: 8px;
+            border-radius: 8px;
+            background: $color-green;
+            border-color: $color-green;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            font-family: $font2;
+            color: white;
+            margin-right: auto;
+            margin-left: auto;
+            &:hover{
+                background-color: green;
+                border-color: green;
+            }
+        }
+}
+
+@mixin enlace(){
+  font-family: $font2;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 5px;
+  &::before{
+    position: absolute;
+    content: '';
+    width: 70%;
+    height: 3px;
+    background-color: white;
+    top: 15px;
+  }   
+  &:hover{
+    color: $color-sky;
+    &::before{
+      position: absolute;
+      content: '';
+      width: 70%;
+      height: 3px;
+      background-color: $color-sky;
+      top: 15px;
+    }   
+  }
+}

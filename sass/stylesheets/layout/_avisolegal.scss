@@ -1,0 +1,44 @@
+@use '../abstracts/mixins' as*;
+@use '../abstracts/variables' as*;
+
+.header_avisolegal{
+    @include header_style();
+    display: flex;
+    flex-direction: row-reverse;
+    figure{
+        width: 200px;
+        .logo img{
+            width: 200px;
+        }
+    }
+    .nav_principal .menu .qs{
+        text-align: center;
+        width: min-content;
+        line-height: 15px;
+    }
+}
+
+.main_avisolegal{
+    @include main_style();
+    .title{
+        font-size: 20px;
+        color: white;
+        font-family: $font1;
+        text-transform: uppercase;
+    }
+    .second_title{
+        font-size: 18px;
+        color: white;
+        font-family: $font1;
+    }
+    .subtitle{
+        font-size: 16px;
+        color: $color-gray;
+        font-family: $font2;
+        line-height: 20px;
+    }
+}
+
+.footer_avisolegal{
+    @include footer_style();
+}
